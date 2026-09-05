@@ -1,1 +1,87 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ABOVT — Charlie Chen</title><link rel="stylesheet" href="../style.css"><style>.subsite{min-height:100svh;padding:120px clamp(22px,9vw,150px);background:linear-gradient(rgba(241,243,244,.90),rgba(218,221,224,.94)),url('../assets/images/cfa-hall.png') center/cover fixed;color:#191a1c}.sub-frame{max-width:1200px;margin:auto;padding:clamp(32px,6vw,80px);background:rgba(249,249,248,.84);border:1px solid rgba(50,53,58,.27);box-shadow:0 35px 80px rgba(35,38,42,.11)}.sub-kicker{font:400 12px/1.4 "Times New Roman",Times,serif;letter-spacing:.17em;text-transform:uppercase;color:#66616f}.subsite h1{font:400 clamp(64px,10vw,150px)/.8 "Times New Roman",Times,serif;letter-spacing:-.04em;margin:1.4rem 0 2rem}.subsite p{max-width:760px;font-size:18px;line-height:1.8;color:#5a6067}.subsite a{font:700 11px "Times New Roman",Times,serif;letter-spacing:.14em;text-transform:uppercase;color:#191a1c;text-underline-offset:.25rem}.sub-rule{height:20px;border-top:1px solid rgba(50,53,58,.27);border-bottom:4px double rgba(50,53,58,.27);margin:35px 0}.soon{font-family:"Times New Roman",Times,serif;font-size:28px!important;color:#191a1c!important}</style></head><body><main class="subsite"><section class="sub-frame"><p class="sub-kicker">CHARLIE CHEN · PERSONAL ARCHIVE · MMXXVI</p><h1>ABOVT</h1><div class="sub-rule"></div><p class="soon">THIS GALLERY IS VNDER CONSTRVCTION.</p><p>Biography · background · skills · values · acknowledgements</p><p>This route is active now so the rolling inscription on the home page behaves like real navigation. Content will be expanded from the master site outline.</p><a href="/">← RETVRN TO THE GREAT HALL</a></section></main></body></html>
+<!doctype html>
+<!--
+AI USAGE (15-113 Project 1):
+ChatGPT assisted with prototyping the responsive structure and discipline-navigation layout
+for this About page. I adapted the design to match my existing Renaissance / museum-inspired
+site, and I will write and revise the biography content myself.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About Charlie Chen — biography, background, interests, and disciplines.">
+  <title>About Me — Charlie Chen</title>
+  <link rel="stylesheet" href="../style.css?v=10.10">
+  <link rel="stylesheet" href="about.css?v=10.10">
+</head>
+<body class="about-page-body">
+  <a class="skip-link" href="#about-main">Skip to content</a>
+
+  <header class="topbar about-topbar">
+    <a class="seal" href="../" aria-label="Home">
+      <span class="seal-mark">C·C</span>
+      <span class="seal-copy">MMXXVI · PERSONAL SITE</span>
+    </a>
+    <button class="menu-button" aria-expanded="false" aria-controls="primary-nav">MENU</button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+      <a href="../#about">ABOUT</a>
+      <a href="../#disciplines">DISCIPLINES</a>
+      <a href="../#projects">PROJECTS</a>
+      <a href="../resume/">RÉSUMÉ</a>
+      <a href="../socials/">SOCIALS</a>
+      <a href="../#contact">CONTACT</a>
+      <a href="../lvdvs/">LVDVS</a>
+    </nav>
+  </header>
+
+  <main id="about-main" class="about-subsite">
+    <section class="about-panel" aria-labelledby="about-title">
+      <div class="about-panel-heading">
+        <p class="about-overline">CARNEGIE MELLON · SAN FRANCISCO · PITTSBVRGH</p>
+        <div class="about-title-row">
+          <span class="about-index">I</span>
+          <h1 id="about-title">ABOUT ME</h1>
+        </div>
+      </div>
+
+      <div class="about-biography">
+        <p class="bio-label">BIOGRAPHY</p>
+        <div class="bio-copy">
+          <p class="bio-intro">Hello! I’m Charlie, or Yikai Chen.</p>
+          <p>I’m currently studying Statistics and Machine Learning at Carnegie Mellon University, with plans to transfer into the School of Computer Science to pursue Artificial Intelligence. I have a strong interest in solving problems creatively—whether through code, data, design, or my own hands.</p>
+          <p>Whether I’m building data structures in C/C++, developing machine-learning projects in Python, or intonating and modifying instruments through luthiery, I aim to deliver clean, thoughtful results through streamlined workflows and careful execution.</p>
+          <p>Outside the classroom, you might find me playing music with <a class="bio-link" href="https://www.instagram.com/lingotheband/" target="_blank" rel="noreferrer">@lingotheband</a>, <a class="bio-link" href="https://www.instagram.com/chromiummusic" target="_blank" rel="noreferrer">@chromiummusic</a>, and <a class="bio-link" href="https://www.instagram.com/oneoneoneband" target="_blank" rel="noreferrer">@oneoneoneband</a>; doing tricks and flips with <a class="bio-link" href="https://www.instagram.com/cmutricking/" target="_blank" rel="noreferrer">@cmutricking</a>; developing novel, delicious, and nutritious recipes in the kitchen; working on my own instruments inside CMU’s makerspaces; preparing for the next convention with <a class="bio-link" href="https://www.instagram.com/cosplayatcmu/" target="_blank" rel="noreferrer">@cmucosplay</a>; or building my jewelry startup, <a class="bio-link" href="https://pittsburghpearls.base44.app/" target="_blank" rel="noreferrer">@pittsburghpearls</a>.</p>
+        </div>
+      </div>
+
+      <div class="about-divider" aria-hidden="true"><span></span></div>
+
+      <section class="discipline-directory" aria-labelledby="discipline-title">
+        <div class="discipline-heading-row">
+          <h2 id="discipline-title">DISCIPLINES</h2>
+          <p>SELECT A FIELD TO ENTER ITS GALLERY</p>
+        </div>
+
+        <nav class="discipline-placards" aria-label="Discipline pages">
+          <a class="discipline-placard" href="../mvsic/"><span class="discipline-dot" aria-hidden="true"></span><span>MVSIC</span></a>
+          <a class="discipline-placard" href="../lvthiery/"><span class="discipline-dot" aria-hidden="true"></span><span>LVTHIERY</span></a>
+          <a class="discipline-placard" href="../lvthiery/engineering/"><span class="discipline-dot" aria-hidden="true"></span><span>ENGINEERING</span></a>
+          <a class="discipline-placard" href="../programming/"><span class="discipline-dot" aria-hidden="true"></span><span>PROGRAMMING</span></a>
+          <a class="discipline-placard" href="../lingvistics/"><span class="discipline-dot" aria-hidden="true"></span><span>LINGVISTICS</span></a>
+          <a class="discipline-placard" href="../bvsiness/"><span class="discipline-dot" aria-hidden="true"></span><span>BVSINESS</span></a>
+          <a class="discipline-placard" href="../athleticism/"><span class="discipline-dot" aria-hidden="true"></span><span>ATHLETICISM</span></a>
+          <a class="discipline-placard" href="../swimming/"><span class="discipline-dot" aria-hidden="true"></span><span>SWIMMING</span></a>
+          <a class="discipline-placard" href="../tricking/"><span class="discipline-dot" aria-hidden="true"></span><span>TRICKING</span></a>
+          <a class="discipline-placard" href="../cooking/"><span class="discipline-dot" aria-hidden="true"></span><span>COOKING</span></a>
+          <a class="discipline-placard" href="../anime/"><span class="discipline-dot" aria-hidden="true"></span><span>ANIME</span></a>
+          <a class="discipline-placard" href="../feline/"><span class="discipline-dot" aria-hidden="true"></span><span>FELINE</span></a>
+        </nav>
+      </section>
+
+      <a class="about-return" href="../">← RETURN TO THE GREAT HALL</a>
+    </section>
+  </main>
+
+  <script src="../script.js?v=10.10"></script>
+</body>
+</html>

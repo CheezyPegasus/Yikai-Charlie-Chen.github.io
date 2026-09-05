@@ -1,3 +1,8 @@
+/*
+AI USAGE: ChatGPT helped prototype the JavaScript logic for these six small games. I chose
+the game concepts, revised the data/content, and integrated the interactions into my site.
+*/
+
 const tabs=[...document.querySelectorAll('.game-tabs button')];
 const panels=[...document.querySelectorAll('.game-panel')];
 tabs.forEach(b=>b.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));panels.forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.game).classList.add('active')}));

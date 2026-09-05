@@ -1,4 +1,13 @@
 <!doctype html>
+<!--
+AI USAGE (15-113 Project 1):
+ChatGPT was used as a learning, brainstorming, and prototyping tool during development.
+It helped explain HTML/CSS/JavaScript concepts and prototype early layouts, responsive
+behavior, hover interactions, and portions of the site structure. I repeatedly revised,
+rejected, and modified those suggestions to fit my own content, information architecture,
+Renaissance / Christian / modern-neoclassical visual direction, typography, imagery,
+and interaction choices. No external website template was used.
+-->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -100,13 +109,20 @@
 
       <div class="about-layout">
         <figure class="marian-medallion">
-          <div class="medallion-frame">
+          <div class="medallion-frame" tabindex="0" role="button" aria-label="Portrait medallion. Hover, focus, or tap to turn from the Marian image to Charlie's portrait.">
             <span class="medallion-point north"></span>
             <span class="medallion-point east"></span>
             <span class="medallion-point south"></span>
             <span class="medallion-point west"></span>
-            <div class="medallion-halo" aria-hidden="true"></div>
-            <img src="assets/images/marian-reference.png" alt="White Marian statue">
+            <div class="medallion-coin">
+              <div class="medallion-face medallion-front">
+                <div class="medallion-halo" aria-hidden="true"></div>
+                <img src="assets/images/marian-reference.png" alt="White Marian statue">
+              </div>
+              <div class="medallion-face medallion-back">
+                <img src="assets/images/profile-charlie.jpg" alt="Charlie Chen smiling in a Carnegie Mellon sweatshirt">
+              </div>
+            </div>
           </div>
           <figcaption><span>FIG. I</span><strong>GRACE · MEMORY · GRATITVDE</strong></figcaption>
         </figure>
@@ -116,10 +132,34 @@
           <p>This site is deliberately broader than a conventional software portfolio. It is a living record of work, experiments, performances, training, research, instruments, food, culture, and whatever gets added next.</p>
 
           <div class="archive-register" aria-label="About summary">
-            <div><span>EDVCATION</span><strong>PLACEHOLDER UNIVERSITY</strong><small>PLACEHOLDER PROGRAM · MAY 2029</small></div>
-            <div><span>LOCATION</span><strong>PITTSBVRGH, PA</strong><small>CALIFORNIA ROOTS</small></div>
-            <div><span>LANGVAGES</span><strong>ENGLISH · MANDARIN</strong><small>JAPANESE · SPANISH · GERMAN INTEREST</small></div>
-            <div><span>PRACTICE</span><strong>AI · MVSIC · MAKING</strong><small>AND AN UNREASONABLE NUMBER OF SIDE QUESTS</small></div>
+            <div class="education-entry">
+              <span>EDVCATION</span>
+              <div class="register-copy">
+                <strong>CARNEGIE MELLON UNIVERSITY</strong>
+                <small>B.S. Statistics and Machine Learning → B.S. Artificial Intelligence · MAY 2029</small>
+              </div>
+            </div>
+            <div class="location-entry">
+              <span>LOCATION</span>
+              <div class="register-copy">
+                <strong>PITTSBVRGH, PA</strong>
+                <small>SAN FRANCISCO, CA<br>LOS ANGELES, CA</small>
+              </div>
+            </div>
+            <div class="languages-entry">
+              <span>LANGVAGES</span>
+              <div class="register-copy">
+                <strong>FLUENCY: ENGLISH · MANDARIN</strong>
+                <small>CONVERSATIONAL: SPANISH · JAPANESE · GERMAN INTEREST</small>
+              </div>
+            </div>
+            <div class="practice-entry">
+              <span>PRACTICE</span>
+              <div class="register-copy">
+                <strong>COOKING · MVSIC · CRAFTING</strong>
+                <small>AND AN UNREASONABLE NUMBER OF SIDE QUESTS</small>
+              </div>
+            </div>
           </div>
 
           <a class="inscription-link dark" href="/about/">FULL BIOGRAPHY</a>
@@ -185,12 +225,38 @@
         </header>
 
         <div class="project-triptych">
-          <article class="project-leaf">
+          <article class="project-leaf schulte-project">
             <span class="rosette" aria-hidden="true">✦</span>
-            <p class="project-meta">PROGRAMMING · C</p>
-            <h3>Schulte Grid</h3>
-            <p>A terminal implementation exploring dynamic memory, randomized grids, interfaces, and cognitive-psychology inspiration.</p>
-            <a href="/projects/">VIEW PROJECT →</a>
+            <div class="schulte-copy">
+              <p class="project-meta">15-122 · PROGRAMMING · C · SPRING 2026</p>
+              <h3>Schulte Grid</h3>
+              <p>A terminal-based Schulte Grid implementation built around a dynamically allocated 2D data structure, randomized placement of values from 1 through n², and explicit allocation and cleanup.</p>
+              <a href="https://github.com/CheezyPegasus/Schulte-Grid-15122-Spring2026" target="_blank" rel="noreferrer">SOURCE CODE</a>
+            </div>
+
+            <figure class="terminal-demo" aria-label="Terminal output from the Schulte Grid program">
+              <div class="terminal-bar">
+                <span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span>SCHULTE GRID · C</span>
+              </div>
+              <pre><code><span class="terminal-prompt">$</span> ./schulte-demo
+Creating a 5x5 schulte grid...
+Initializing with random values 1..25...
+Printing grid:
+ -------------------------
+ | 18 | 11 | 1  | 6  | 20 |
+ -------------------------
+ | 25 | 14 | 10 | 21 | 3  |
+ -------------------------
+ | 13 | 19 | 15 | 23 | 24 |
+ -------------------------
+ | 5  | 16 | 22 | 8  | 17 |
+ -------------------------
+ | 7  | 2  | 9  | 4  | 12 |
+ -------------------------
+Freeing grid...</code></pre>
+              <figcaption>Sample output from an actual local run. Grid order changes between runs.</figcaption>
+            </figure>
           </article>
 
           <article class="project-leaf featured">
@@ -278,7 +344,7 @@
 
   <footer>
     <div><span class="seal-mark">C·C</span><small>MMXXVI</small></div>
-    <nav><a href="/privacy/">POLICY // PRIVACY // STATEMENT</a><a class="brand-native" href="https://github.com/CheezyPegasus">GitHub</a><a class="brand-native" href="#">YouTube</a></nav>
+    <nav><a href="credits/">CREDITS / SOURCES</a><a href="/privacy/">POLICY // PRIVACY // STATEMENT</a><a class="brand-native" href="https://github.com/CheezyPegasus">GitHub</a><a class="brand-native" href="#">YouTube</a></nav>
   </footer>
 
   <script src="script.js?v=10.3"></script>

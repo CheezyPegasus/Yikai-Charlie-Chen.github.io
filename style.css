@@ -1,3 +1,11 @@
+/*
+AI USAGE (15-113 Project 1):
+ChatGPT helped me learn and prototype portions of the responsive layout, CSS hover states,
+spacing systems, and early visual treatments. I substantially modified the generated CSS:
+the final typography, proportions, palette, museum / Renaissance architecture, 21:9 gallery
+behavior, imagery choices, and visual hierarchy reflect my own design direction.
+*/
+
 :root{
   --roman:"Times New Roman", Times, serif;
   --body:"Times New Roman", Times, serif;
@@ -102,14 +110,145 @@ img{max-width:100%}
 /* ABOUT — devotional portrait medallion + archival rows, no cards. */
 .about-layout{position:relative;z-index:2;max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:minmax(300px,.72fr) 1.28fr;gap:clamp(56px,8vw,120px);align-items:center}
 .marian-medallion{margin:0;display:flex;flex-direction:column;align-items:center}
-.medallion-frame{position:relative;width:min(100%,390px);aspect-ratio:5/7;border-radius:50%;padding:12px;background:transparent;border:1px solid rgba(60,60,62,.46)}
-.medallion-frame::before{content:"";position:absolute;inset:8px;border:1px solid rgba(95,95,98,.32);border-radius:50%;pointer-events:none;z-index:3}.medallion-frame::after{content:"";position:absolute;inset:-8px;border:1px solid rgba(155,134,92,.24);border-radius:50%;pointer-events:none;z-index:0}
-.medallion-frame img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 42%;border-radius:50%;filter:none!important;mix-blend-mode:normal!important}
+.medallion-frame{
+  position:relative;
+  width:min(100%,390px);
+  aspect-ratio:5/7;
+  border-radius:50%;
+  padding:12px;
+  background:transparent;
+  border:1px solid rgba(60,60,62,.46);
+  perspective:1200px;
+  cursor:pointer;
+  outline:none;
+}
+.medallion-frame::before{content:"";position:absolute;inset:8px;border:1px solid rgba(95,95,98,.32);border-radius:50%;pointer-events:none;z-index:5}
+.medallion-frame::after{content:"";position:absolute;inset:-8px;border:1px solid rgba(155,134,92,.24);border-radius:50%;pointer-events:none;z-index:0}
+.medallion-frame:focus-visible{outline:2px solid rgba(235,235,236,.8);outline-offset:12px}
+.medallion-coin{
+  position:relative;
+  z-index:1;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  transform-style:preserve-3d;
+  transition:transform .78s cubic-bezier(.2,.68,.24,1);
+  will-change:transform;
+}
+.medallion-face{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  border-radius:50%;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  background:#1f1f22;
+}
+.medallion-face img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  filter:none!important;
+  mix-blend-mode:normal!important;
+}
+.medallion-front img{object-position:50% 42%}
+.medallion-back{transform:rotateY(180deg)}
+.medallion-back img{
+  object-position:48% 38%;
+  transform:scale(1.08);
+}
+.medallion-frame:hover .medallion-coin,
+.medallion-frame:focus .medallion-coin,
+.medallion-frame.is-flipped .medallion-coin{transform:rotateY(180deg)}
 .medallion-halo{position:absolute;z-index:2;width:42%;aspect-ratio:1;border:1px solid rgba(155,134,92,.46);border-radius:50%;left:50%;top:22%;transform:translate(-50%,-50%);pointer-events:none}
-.medallion-point{position:absolute;z-index:4;width:9px;height:9px;border:1px solid rgba(55,55,57,.55);background:var(--marble);transform:rotate(45deg)}.medallion-point.north{left:50%;top:-5px}.medallion-point.south{left:50%;bottom:-5px}.medallion-point.east{right:-5px;top:50%}.medallion-point.west{left:-5px;top:50%}
+.medallion-point{position:absolute;z-index:7;width:9px;height:9px;border:1px solid rgba(55,55,57,.55);background:var(--marble);transform:rotate(45deg)}.medallion-point.north{left:50%;top:-5px}.medallion-point.south{left:50%;bottom:-5px}.medallion-point.east{right:-5px;top:50%}.medallion-point.west{left:-5px;top:50%}
 .marian-medallion figcaption{width:min(100%,390px);display:flex;justify-content:space-between;gap:18px;padding:14px 4px;border-bottom:1px solid var(--rule);font-family:var(--roman);font-size:11px;letter-spacing:.09em}.marian-medallion strong{font-weight:400;color:var(--marian)}
 .about-copy .lead{margin:0 0 1rem;font-family:var(--roman);font-size:clamp(28px,3.2vw,47px);line-height:1.17;color:#222224}.about-copy>p:not(.lead){max-width:760px;color:#5c5c61;font-size:17px}
 .archive-register{margin:42px 0;border-top:1px solid var(--rule)}.archive-register>div{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--rule)}.archive-register span{font-size:10px;color:var(--oxblood)}.archive-register strong{display:block;font-size:16px;font-weight:400;letter-spacing:.09em}.archive-register small{display:block;margin-top:.2rem;color:#6b6b70;font-size:11px}
+
+
+/* ABOUT V10.5 — static deep-grey chamber and corrected personal register. */
+.about-section{
+  background:#323236!important;
+  color:#f1f1ef;
+}
+.about-section::after{display:none!important}
+.about-section .ornament-rule{
+  border-color:rgba(225,225,225,.22);
+}
+.about-section .ornament-rule::before,
+.about-section .ornament-rule::after{
+  background:rgba(200,200,202,.28);
+}
+.about-section .ornament-rule i{
+  background:#323236;
+  border-color:rgba(205,205,208,.48);
+}
+.about-section .section-heading{
+  border-color:rgba(230,230,230,.20);
+}
+.about-section .section-index{color:#b9b9bd}
+.about-section .section-heading h2{color:#f3f3f1}
+.about-section .medallion-frame{
+  border-color:rgba(205,205,208,.48);
+}
+.about-section .medallion-frame::before{
+  border-color:rgba(190,190,193,.30);
+}
+.about-section .medallion-frame::after{
+  border-color:rgba(220,220,222,.20);
+}
+.about-section .medallion-halo{
+  border-color:rgba(210,210,212,.34);
+}
+.about-section .medallion-point{
+  border-color:rgba(210,210,212,.54);
+  background:#323236;
+}
+.about-section .marian-medallion figcaption{
+  color:#c5c5c8;
+  border-color:rgba(230,230,230,.20);
+}
+.about-section .marian-medallion strong{color:#dedee0}
+.about-section .about-copy .lead{color:#f1f1ef}
+.about-section .about-copy>p:not(.lead){color:#c7c7ca}
+.about-section .archive-register{
+  border-top-color:rgba(230,230,230,.20);
+}
+.about-section .archive-register>div{
+  border-bottom-color:rgba(230,230,230,.17);
+}
+.about-section .archive-register span{
+  color:#bfc0c4;
+}
+.about-section .archive-register .register-copy{min-width:0}
+.about-section .archive-register strong{
+  color:#f2f2f0;
+  font-size:17px;
+  line-height:1.35;
+}
+.about-section .archive-register small{
+  color:#c6c6c9;
+  font-size:13px;
+  line-height:1.5;
+}
+.about-section .archive-register .location-entry strong{
+  font-size:15px;
+}
+.about-section .archive-register .location-entry small{
+  font-size:12.5px;
+}
+.about-section .inscription-link.dark{
+  background:#ececea;
+  color:#202023;
+  border-color:#ececea;
+}
+.about-section .inscription-link.dark:hover{
+  background:#cfcfd2;
+  color:#171719;
+}
 
 /* DISCIPLINE GALLERY — cinematic fresco panels, not cards. */
 .disciplines-section{background:#efeee9}
@@ -164,6 +303,30 @@ footer{min-height:120px;padding:28px clamp(20px,5vw,70px);display:flex;align-ite
 /* Progressive-enhancement fix: content is ALWAYS visible even if JavaScript fails. */
 .reveal{opacity:1;transform:none;transition:none}.reveal.visible{opacity:1;transform:none}
 
+
+/* Schulte project terminal preview — sample output from the user's C implementation. */
+.project-leaf.schulte-project{
+  grid-column:1 / -1;
+  min-height:0;
+  padding:42px 34px;
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(420px,1.18fr);
+  gap:clamp(34px,5vw,72px);
+  align-items:center;
+  justify-content:stretch;
+  border-right:0;
+  border-bottom:1px solid rgba(255,255,255,.17);
+}
+.schulte-project .rosette{left:34px;top:24px;transform:none}
+.schulte-copy{padding-top:18px;min-width:0}
+.schulte-project .schulte-copy h3{font-size:clamp(40px,5vw,66px)}
+.schulte-project .schulte-copy p{max-width:40rem}
+.terminal-demo{margin:0;min-width:0;border:1px solid rgba(255,255,255,.2);border-radius:12px;overflow:hidden;background:#111214;box-shadow:0 18px 48px rgba(0,0,0,.24)}
+.terminal-bar{height:38px;padding:0 13px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:#252629;border-bottom:1px solid rgba(255,255,255,.08);font:600 9px/1 Arial,Helvetica,sans-serif;letter-spacing:.14em;color:#9c9da1}
+.terminal-dots{display:flex;gap:6px}.terminal-dots i{display:block;width:8px;height:8px;border-radius:50%;background:#6c6d70}
+.terminal-demo pre{margin:0;padding:20px 22px 17px;overflow:auto;background:transparent;color:#e5e5e5;font:400 12px/1.45 Menlo,Monaco,Consolas,"Liberation Mono",monospace;white-space:pre;tab-size:2}
+.terminal-demo code{font:inherit;color:inherit}.terminal-prompt{color:#b9a67f}.terminal-demo figcaption{padding:0 22px 17px;color:#838489;font:400 9px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.04em}
+
 @media (max-width:1050px){
   .primary-nav{gap:.9rem}.primary-nav a{font-size:10px}
   .gallery-bays{grid-template-columns:1fr}
@@ -187,8 +350,19 @@ footer{min-height:120px;padding:28px clamp(20px,5vw,70px);display:flex;align-ite
 }
 
 @media (hover:none){.gallery-bay::after{background:rgba(64,64,66,.48)}.gallery-copy p,.gallery-copy span{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.frieze-track{animation:none}.reveal{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.medallion-coin{transition:none!important} html{scroll-behavior:auto}.frieze-track{animation:none}.reveal{opacity:1;transform:none;transition:none}}
 
 /* V10.3 hero hierarchy: display text ~5 parts, supporting text ~3 parts visually, without overpowering the museum image. */
 .hero-copy{max-width:980px}
 @media (max-width:760px){.hero-identity p{font-size:17px}.hero-identity p+ p{font-size:14px}.hero-summary{font-size:18px}.inscription-link{font-size:14px}.hero-dedication span{font-size:12px}.hero-dedication strong{font-size:16px}}
+
+@media (max-width:900px){
+  .project-leaf.schulte-project{grid-template-columns:1fr;gap:28px;padding:38px 26px}
+  .terminal-demo pre{font-size:11px}
+}
+@media (max-width:560px){
+  .project-leaf.schulte-project{padding:34px 18px}
+  .terminal-demo{border-radius:8px}
+  .terminal-demo pre{padding:16px 14px 14px;font-size:9.5px}
+  .terminal-demo figcaption{padding:0 14px 14px;font-size:8px}
+}
