@@ -1,0 +1,194 @@
+:root{
+  --roman:"Times New Roman", Times, serif;
+  --body:"Times New Roman", Times, serif;
+  --external:Arial, Helvetica, sans-serif;
+
+  --marble:#f2f1ed;
+  --marble-2:#e6e5e0;
+  --marble-3:#d4d3ce;
+  --stone-shadow:#8d8d89;
+  --ink:#181819;
+  --ink-soft:#56565a;
+  --rule:rgba(32,32,34,.26);
+
+  --marian:#29384f;
+  --oxblood:#4b2228;
+  --ecclesial:#30243a;
+  --gilt:#9b865c;
+
+  --night:#0e0d10;
+  --night-2:#17131a;
+  --night-3:#211a26;
+  --max:1440px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--marble)}
+body{margin:0;background:var(--marble);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+a{color:inherit}
+img{max-width:100%}
+.skip-link{position:absolute;left:-10000px;top:auto}.skip-link:focus{left:1rem;top:1rem;z-index:1000;background:#fff;padding:.6rem 1rem}
+
+/* Site-internal typography is deliberately serif / inscriptional. */
+.inscribed-overline,.primary-nav,.seal-copy,.frieze,.section-heading,.inscription-link,.gallery-copy h3,.gallery-copy span,.project-meta,.project-leaf a,.project-epilogue>span,.cv-heading,.cv-register dt,.social-list span,.contact-kicker,.contact-options,footer nav,.hero-degree,.hero-dedication,.archive-register span,.archive-register strong{
+  font-family:var(--roman);
+  text-transform:uppercase;
+  letter-spacing:.14em;
+}
+
+/* External platform names are the exception. */
+.brand-native,.brand-link{font-family:var(--external)!important;text-transform:none!important;letter-spacing:0!important}
+
+.topbar{
+  position:fixed;z-index:100;top:0;left:0;right:0;height:68px;
+  padding:0 clamp(18px,4vw,62px);
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(244,243,239,.92);
+  border-bottom:1px solid rgba(28,28,30,.22);
+  backdrop-filter:blur(10px);
+}
+.seal{text-decoration:none;display:flex;align-items:center;gap:14px}.seal-mark{font:700 21px/1 var(--roman);letter-spacing:.06em}.seal-copy{font-size:10px;color:#5f5f60}.primary-nav{display:flex;align-items:center;gap:1.45rem;font-size:11px}.primary-nav a{text-decoration:none;border-bottom:1px solid transparent;padding:.15rem 0}.primary-nav a:hover{border-color:currentColor}.menu-button{display:none;background:none;border:0;font:700 12px var(--roman);letter-spacing:.12em;color:var(--ink)}
+
+/* HERO — museum interior first, web UI second. */
+.hero{
+  position:relative;min-height:100svh;padding:104px clamp(22px,8vw,130px) 128px;
+  display:grid;place-items:center;overflow:hidden;isolation:isolate;
+  background:var(--marble);
+}
+.hero-image{position:absolute;inset:0;background:url('assets/images/sculpture-hall.png') center/cover no-repeat;z-index:-5}
+.hero-architecture{position:absolute;inset:68px 0 0;z-index:-2;pointer-events:none}
+.hero-rule{position:absolute;left:8vw;right:8vw;height:10px;border-top:1px solid rgba(35,35,37,.34);border-bottom:4px double rgba(35,35,37,.22)}
+.hero-rule-top{top:24px}.hero-rule-bottom{bottom:36px;transform:scaleY(-1)}
+.hero-axis{position:absolute;top:10%;bottom:14%;left:50%;width:1px;background:linear-gradient(transparent,rgba(44,44,46,.22) 18%,rgba(44,44,46,.22) 82%,transparent)}
+.hero-halo{position:absolute;width:min(43vw,580px);aspect-ratio:1;border:1px solid rgba(42,42,44,.16);border-radius:50%;left:50%;top:48%;transform:translate(-50%,-50%)}
+.hero-halo::before,.hero-halo::after{content:"";position:absolute;inset:9%;border:1px solid rgba(155,134,92,.18);border-radius:50%}.hero-halo::after{inset:18%;border-color:rgba(41,56,79,.13)}
+.hero-copy{position:relative;z-index:3;text-align:center;max-width:900px;margin-top:9vh}
+.inscribed-overline{font-size:12px;color:#343437;margin:0 0 2.2rem;text-shadow:0 1px 10px rgba(255,255,255,.9)}
+.hero h1{margin:0;font-family:var(--roman);font-size:clamp(68px,9.2vw,138px);line-height:.78;font-weight:400;letter-spacing:-.045em;color:#151516;text-shadow:0 1px 0 #fff,0 0 16px rgba(255,255,255,.90),0 2px 16px rgba(255,255,255,.66)}
+.hero-identity{margin:2rem auto .95rem;display:grid;gap:.38rem;max-width:860px;color:#171719;text-shadow:0 0 10px rgba(255,255,255,.88)}
+.hero-identity p{margin:0;font-family:var(--roman);text-transform:none;letter-spacing:.055em;font-size:clamp(17px,1.55vw,24px);font-weight:600;line-height:1.25}
+.hero-identity p+ p{font-size:clamp(15px,1.35vw,21px);letter-spacing:.11em;font-weight:500}
+.hero-summary{max-width:760px;margin:0 auto;font-size:clamp(18px,1.45vw,23px);line-height:1.52;color:#2b2c2f;text-shadow:0 0 10px rgba(255,255,255,.94)}
+.hero-actions{margin-top:1.75rem;display:flex;gap:1.65rem;justify-content:center;align-items:center;flex-wrap:wrap}
+.inscription-link{display:inline-block;text-decoration:none;font-size:clamp(14px,1.05vw,17px);font-weight:700;padding:.8rem 1.1rem;border-top:1px solid currentColor;border-bottom:1px solid currentColor;color:#1c1d1f;transition:background .22s ease,color .22s ease,letter-spacing .22s ease}
+.inscription-link:hover{letter-spacing:.18em;background:rgba(242,241,237,.88)}
+.inscription-link.secondary{border-color:transparent;text-decoration:underline;text-underline-offset:.3rem}
+.inscription-link.dark{background:var(--ink);color:#f1f0ec;border-color:var(--ink)}
+.inscription-link.dark:hover{background:var(--marian);color:#fff}
+.hero-dedication{position:absolute;z-index:2;left:13vw;right:13vw;bottom:34px;text-align:center;padding:17px 2rem;color:#242529;background:rgba(232,232,229,.94);border-top:1px solid rgba(24,24,26,.34);border-bottom:1px solid rgba(24,24,26,.34)}
+.hero-dedication span{display:block;font-size:clamp(13px,1vw,16px);letter-spacing:.18em;color:#424348}
+.hero-dedication strong{display:block;margin-top:.28rem;font-size:clamp(17px,1.35vw,22px);font-weight:600;letter-spacing:.13em;color:#171719}
+
+/* Inscription frieze directly below the centerpiece. */
+.frieze{position:relative;overflow:hidden;background:var(--marble-2);border-top:1px solid rgba(32,32,34,.34);border-bottom:4px double rgba(32,32,34,.30)}
+.frieze::before,.frieze::after{content:"";position:absolute;z-index:3;top:0;bottom:0;width:72px;pointer-events:none}.frieze::before{left:0;background:linear-gradient(90deg,var(--marble-2),transparent)}.frieze::after{right:0;background:linear-gradient(-90deg,var(--marble-2),transparent)}
+.frieze-track{display:flex;width:max-content;animation:frieze 70s linear infinite}.frieze:hover .frieze-track{animation-play-state:paused}.frieze-set{display:flex;align-items:center;gap:1.35rem;padding:1.08rem .68rem}.frieze a{text-decoration:none;font-size:15px;color:#252527;white-space:nowrap}.frieze a:hover{text-decoration:underline;text-underline-offset:.28rem}.frieze b{font-weight:400;color:var(--gilt)}@keyframes frieze{to{transform:translateX(-50%)}}
+
+.marble-section{position:relative;padding:112px clamp(24px,7vw,110px);background:var(--marble);overflow:hidden}
+.marble-section:nth-of-type(even){background:linear-gradient(180deg,var(--marble),#ecebe7)}
+.marble-section::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;background:radial-gradient(circle at 25% 20%,rgba(41,56,79,.06),transparent 22%),radial-gradient(circle at 80% 70%,rgba(75,34,40,.045),transparent 20%)}
+
+.ornament-rule{position:relative;max-width:var(--max);height:24px;margin:0 auto 52px;border-top:1px solid var(--rule);border-bottom:4px double var(--rule)}
+.ornament-rule::before,.ornament-rule::after{content:"";position:absolute;top:7px;width:calc(50% - 22px);height:1px;background:rgba(155,134,92,.44)}.ornament-rule::before{left:0}.ornament-rule::after{right:0}.ornament-rule i{position:absolute;left:50%;top:3px;width:12px;height:12px;border:1px solid rgba(75,34,40,.52);transform:translateX(-50%) rotate(45deg);background:var(--marble)}
+.ornament-rule.inverse{border-color:rgba(255,255,255,.22)}.ornament-rule.inverse::before,.ornament-rule.inverse::after{background:rgba(155,134,92,.48)}.ornament-rule.inverse i{background:var(--night-2);border-color:rgba(239,232,221,.45)}
+
+/* ALL primary section titles use the same hierarchy and size. */
+.section-heading{position:relative;z-index:2;max-width:var(--max);margin:0 auto 56px;display:flex;align-items:baseline;gap:24px;border-bottom:1px solid var(--rule);padding-bottom:20px}
+.section-index{font-size:17px;color:var(--oxblood);min-width:1.5em}
+.section-heading h2{margin:0;font-family:var(--roman);font-size:clamp(48px,6vw,84px);font-weight:400;letter-spacing:.055em;line-height:.92;text-transform:uppercase}
+.section-heading.inverse{color:#f0ece6;border-color:rgba(255,255,255,.18)}.section-heading.inverse .section-index{color:#b8a17a}
+.section-deck{position:relative;z-index:2;max-width:var(--max);margin:-30px auto 44px;font-size:20px;color:#5a5a5e}
+
+/* ABOUT — devotional portrait medallion + archival rows, no cards. */
+.about-layout{position:relative;z-index:2;max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:minmax(300px,.72fr) 1.28fr;gap:clamp(56px,8vw,120px);align-items:center}
+.marian-medallion{margin:0;display:flex;flex-direction:column;align-items:center}
+.medallion-frame{position:relative;width:min(100%,390px);aspect-ratio:5/7;border-radius:50%;padding:12px;background:transparent;border:1px solid rgba(60,60,62,.46)}
+.medallion-frame::before{content:"";position:absolute;inset:8px;border:1px solid rgba(95,95,98,.32);border-radius:50%;pointer-events:none;z-index:3}.medallion-frame::after{content:"";position:absolute;inset:-8px;border:1px solid rgba(155,134,92,.24);border-radius:50%;pointer-events:none;z-index:0}
+.medallion-frame img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 42%;border-radius:50%;filter:none!important;mix-blend-mode:normal!important}
+.medallion-halo{position:absolute;z-index:2;width:42%;aspect-ratio:1;border:1px solid rgba(155,134,92,.46);border-radius:50%;left:50%;top:22%;transform:translate(-50%,-50%);pointer-events:none}
+.medallion-point{position:absolute;z-index:4;width:9px;height:9px;border:1px solid rgba(55,55,57,.55);background:var(--marble);transform:rotate(45deg)}.medallion-point.north{left:50%;top:-5px}.medallion-point.south{left:50%;bottom:-5px}.medallion-point.east{right:-5px;top:50%}.medallion-point.west{left:-5px;top:50%}
+.marian-medallion figcaption{width:min(100%,390px);display:flex;justify-content:space-between;gap:18px;padding:14px 4px;border-bottom:1px solid var(--rule);font-family:var(--roman);font-size:11px;letter-spacing:.09em}.marian-medallion strong{font-weight:400;color:var(--marian)}
+.about-copy .lead{margin:0 0 1rem;font-family:var(--roman);font-size:clamp(28px,3.2vw,47px);line-height:1.17;color:#222224}.about-copy>p:not(.lead){max-width:760px;color:#5c5c61;font-size:17px}
+.archive-register{margin:42px 0;border-top:1px solid var(--rule)}.archive-register>div{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--rule)}.archive-register span{font-size:10px;color:var(--oxblood)}.archive-register strong{display:block;font-size:16px;font-weight:400;letter-spacing:.09em}.archive-register small{display:block;margin-top:.2rem;color:#6b6b70;font-size:11px}
+
+/* DISCIPLINE GALLERY — cinematic fresco panels, not cards. */
+.disciplines-section{background:#efeee9}
+.gallery-bays{position:relative;z-index:2;max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 28px}
+.gallery-bay{position:relative;display:block;aspect-ratio:21/9;overflow:hidden;text-decoration:none;background-position:center;background-size:cover;border:1px solid rgba(39,39,41,.30);isolation:isolate}
+.gallery-bay::before{content:"";position:absolute;inset:0;z-index:0;background:transparent;transition:background .34s ease}
+.gallery-bay::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(72,72,74,0);transition:background .34s ease}
+.gallery-bay:hover::after,.gallery-bay:focus-visible::after{background:rgba(72,72,74,.74)}
+.gallery-copy{position:absolute;z-index:2;left:clamp(20px,3vw,42px);right:clamp(20px,3vw,42px);bottom:clamp(18px,2.5vw,34px);color:#f6f4ef;text-shadow:0 2px 10px rgba(0,0,0,.82),0 0 2px rgba(0,0,0,.9)}
+.gallery-copy h3{margin:0;font-size:clamp(32px,3.3vw,56px);line-height:.92;font-weight:400;letter-spacing:.07em;transition:transform .34s ease}.gallery-copy p{max-width:42rem;margin:.85rem 0 0;color:#f2f0ea;font-size:clamp(13px,1.15vw,17px);line-height:1.45;opacity:0;transform:translateY(12px);transition:opacity .30s ease,transform .30s ease}.gallery-copy span{display:block;margin-top:.9rem;font-size:10px;opacity:0;transform:translateY(12px);transition:opacity .30s ease .04s,transform .30s ease .04s}.gallery-bay:hover .gallery-copy h3,.gallery-bay:focus-visible .gallery-copy h3{transform:translateY(-4px)}.gallery-bay:hover .gallery-copy p,.gallery-bay:hover .gallery-copy span,.gallery-bay:focus-visible .gallery-copy p,.gallery-bay:focus-visible .gallery-copy span{opacity:1;transform:translateY(0)}.gallery-bay:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+
+/* Pilot imagery — untouched full-color backgrounds. */
+.bg-mvsic{background-image:url('https://images.unsplash.com/photo-1768264260627-2ddba41f8ef6?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=70&w=3000');background-position:center 46%}
+.bg-lvthiery{background-image:url('https://img.youtube.com/vi/nYXI9m9AdjU/maxresdefault.jpg');background-position:center 52%}
+.bg-engineering{background-image:url('https://engineering.cmu.edu/techspark/_files/images/facilities/high-bay/hb1.png');background-position:center 45%}
+.bg-programming{background-image:url('https://images.unsplash.com/photo-1781971570379-3b56cb3ea81e?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=70&w=3000');background-position:center 50%}
+.bg-lingvistics{background-image:url('https://images.unsplash.com/photo-1681140028307-2912af4b6f2d?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=70&w=3000');background-position:center 52%}
+.bg-bvsiness{background-image:url('https://images.unsplash.com/photo-1599611991961-08546238ee0f?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=70&w=3000');background-position:center 76%}
+.bg-athleticism{background-image:url('https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=70&w=3000');background-position:center 60%}
+.bg-swimming{background-image:url('https://images.unsplash.com/photo-1782573174941-431fad74a9dc?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=70&w=3000');background-position:center 48%}
+.bg-tricking{background-image:url('https://images.unsplash.com/photo-1780891706365-5244e91ebeba?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=70&w=3000');background-position:center 47%}
+.bg-cooking{background-image:url('https://images.unsplash.com/photo-1763685805275-1845419c01a1?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=70&w=3000');background-position:center 50%}
+.bg-anime{background-image:url('https://images.pexels.com/photos/29901256/pexels-photo-29901256.jpeg?cs=srgb&dl=pexels-spencphoto-29901256.jpg&fm=jpg');background-position:center 40%}
+.bg-feline{background-image:url('https://images.unsplash.com/photo-1569619543238-3c81d8ab78a8?auto=format&fit=crop&fm=jpg&ixlib=rb-4.1.0&q=70&w=3000');background-position:center 43%}
+
+/* PROJECTS — a modern triptych inside a dark mural chamber. */
+.projects-section{position:relative;padding:118px clamp(24px,7vw,110px);background:var(--night-2);color:#eee9e2;overflow:hidden;isolation:isolate}
+.projects-mural{position:absolute;inset:0;background:url('assets/images/cfa-hall.png') center/cover no-repeat;opacity:.16;z-index:-2}.projects-section::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,23,.72),rgba(12,11,14,.94));z-index:-1}.projects-content{max-width:var(--max);margin:0 auto}
+.project-triptych{display:grid;grid-template-columns:1fr 1.38fr 1fr;border-top:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.22)}
+.project-leaf{position:relative;min-height:430px;padding:46px 34px 40px;display:flex;flex-direction:column;justify-content:flex-end;border-right:1px solid rgba(255,255,255,.17);background:rgba(15,13,17,.46);transition:background .25s ease}.project-leaf:last-child{border-right:0}.project-leaf:hover{background:rgba(48,36,58,.55)}.project-leaf.featured{min-height:500px;background:rgba(41,56,79,.18);border-top:4px solid var(--oxblood);border-bottom:4px solid rgba(155,134,92,.36)}.rosette{position:absolute;top:34px;left:50%;transform:translateX(-50%);font-size:20px;color:#b7a276}.project-meta{margin:0 0 1rem;font-size:9px;color:#b9a67f}.project-leaf h3{font:400 clamp(34px,4vw,58px)/1.02 var(--roman);margin:0 0 1.1rem}.project-leaf p{color:#c8c4be;max-width:34rem}.project-leaf a{display:inline-block;margin-top:1rem;color:#f1ece6;font-size:10px;text-underline-offset:.25rem}
+.project-epilogue{margin-top:44px;padding:28px 0 0;border-top:1px solid rgba(255,255,255,.18);display:grid;grid-template-columns:160px 1fr 1.4fr auto;gap:24px;align-items:baseline}.project-epilogue>span{font-size:9px;color:#b9a67f}.project-epilogue h3{font:400 34px/1 var(--roman);margin:0}.project-epilogue p{margin:0;color:#c9c4bd}.project-epilogue a{color:#f2eee8}
+
+/* RÉSUMÉ — archival register, not a dashboard grid. */
+.resume-section{background:linear-gradient(#f2f1ed,#e7e6e1)}
+.cv-sheet{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:30px 0 0;border-top:4px double var(--rule);border-bottom:4px double var(--rule)}
+.cv-heading{display:flex;justify-content:space-between;gap:24px;padding:0 0 20px;border-bottom:1px solid var(--rule);font-size:11px}.cv-heading strong{font-weight:400;color:var(--oxblood)}
+.cv-register{margin:0}.cv-register>div{display:grid;grid-template-columns:180px 1fr;gap:32px;padding:22px 0;border-bottom:1px solid var(--rule)}.cv-register dt{font-size:10px;color:var(--marian)}.cv-register dd{margin:0}.cv-register dd strong{display:block;font:400 25px/1.15 var(--roman)}.cv-register dd span{display:block;margin-top:.35rem;color:#66666a}.cv-action{text-align:right;padding:28px 0}
+
+/* SOCIALS — deliberate modern break from the museum language. */
+.socials-section{background:#efeee9}.social-list{position:relative;z-index:2;max-width:1100px;margin:0 auto;border-top:1px solid var(--rule)}.social-list a{display:grid;grid-template-columns:minmax(180px,1fr) 1.5fr 40px;gap:24px;align-items:center;min-height:92px;text-decoration:none;border-bottom:1px solid var(--rule);transition:padding .2s ease,background .2s ease}.social-list a:hover{padding-left:16px;background:rgba(255,255,255,.42)}.social-list strong{font:400 31px/1 var(--roman)}.social-list .brand-native{font-size:28px;font-weight:700}.social-list span{font-size:9px;color:#69696d}.social-list i{font-style:normal;font-size:22px;text-align:right;color:var(--oxblood)}
+
+/* CONTACT — chapel / apse. Same title system, darker sacred finale. */
+.contact-section{position:relative;min-height:78vh;padding:112px 24px;display:grid;place-items:center;text-align:center;color:#efe9df;background:radial-gradient(circle at 50% 35%,rgba(48,36,58,.34),transparent 28%),linear-gradient(#17131a,#0d0c0f);overflow:hidden;isolation:isolate}
+.contact-inner{position:relative;z-index:3;width:min(1100px,100%)}.contact-heading{justify-content:center;max-width:900px;margin-bottom:28px}.contact-heading h2{font-size:clamp(48px,6vw,84px)}
+.contact-halo{position:absolute;z-index:0;width:min(46vw,520px);aspect-ratio:1;border:1px solid rgba(239,233,224,.18);border-radius:50%;top:45%;left:50%;transform:translate(-50%,-50%)}.contact-halo::before{content:"";position:absolute;inset:12%;border:1px solid rgba(155,134,92,.26);border-radius:50%}.contact-cross{position:absolute;z-index:0;left:50%;top:18%;bottom:10%;width:1px;background:linear-gradient(transparent,rgba(239,233,224,.16),transparent)}.contact-cross::after{content:"";position:absolute;top:34%;left:-22vw;width:44vw;height:1px;background:linear-gradient(90deg,transparent,rgba(239,233,224,.16),transparent)}
+.contact-wings i{position:absolute;z-index:0;top:24%;width:34vw;height:44%;border:1px solid rgba(232,226,219,.12);border-radius:58% 42% 50% 50%;filter:none}.contact-wings i:first-child{left:-10vw;transform:rotate(18deg)}.contact-wings i:last-child{right:-10vw;transform:rotate(-18deg)}
+.contact-kicker{font-size:10px;color:#b5a57e}.contact-email{display:inline-block;margin-top:1.1rem;font:400 clamp(24px,3vw,40px) var(--roman);color:#efe9df;text-underline-offset:.3rem}.contact-options{display:flex;gap:1rem;justify-content:center;align-items:center;margin-top:2rem;font-size:10px}.contact-options a{color:#efe9df}
+
+footer{min-height:120px;padding:28px clamp(20px,5vw,70px);display:flex;align-items:center;justify-content:space-between;background:#09090b;color:#c9c5bf;border-top:1px solid rgba(255,255,255,.12)}footer>div{display:flex;gap:10px;align-items:baseline}footer small{font-family:var(--roman)}footer nav{display:flex;gap:1.2rem;font-size:9px}footer nav a{color:#c9c5bf}
+
+/* Motion is contemporary; architecture remains old. */
+/* Progressive-enhancement fix: content is ALWAYS visible even if JavaScript fails. */
+.reveal{opacity:1;transform:none;transition:none}.reveal.visible{opacity:1;transform:none}
+
+@media (max-width:1050px){
+  .primary-nav{gap:.9rem}.primary-nav a{font-size:10px}
+  .gallery-bays{grid-template-columns:1fr}
+  .about-layout{grid-template-columns:1fr 1.15fr}
+  .project-triptych{grid-template-columns:1fr}.project-leaf{border-right:0;border-bottom:1px solid rgba(255,255,255,.17)}.project-leaf:last-child{border-bottom:0}.project-leaf.featured{order:-1}
+  .project-epilogue{grid-template-columns:1fr 1fr}.project-epilogue p{grid-column:1/-1}
+}
+
+@media (max-width:760px){
+  .topbar{height:62px;padding:0 16px}.seal-copy{display:none}.menu-button{display:block}.primary-nav{display:none;position:absolute;top:62px;left:0;right:0;padding:20px;background:#f1f0ec;border-bottom:1px solid var(--rule);flex-direction:column;align-items:flex-start}.primary-nav.open{display:flex}
+  .hero{padding:92px 18px 126px;min-height:840px}.hero-halo{width:82vw}.hero h1{font-size:clamp(64px,19vw,92px)}.hero-dedication{left:0;right:0;bottom:34px}.hero-rule{left:3vw;right:3vw}
+  .frieze a{font-size:13px}
+  .marble-section,.projects-section{padding:86px 18px}.ornament-rule{margin-bottom:40px}.section-heading{gap:14px;margin-bottom:42px}.section-heading h2{font-size:clamp(42px,13vw,64px)}.section-index{font-size:14px}
+  .about-layout{grid-template-columns:1fr}.archive-register>div{grid-template-columns:1fr;gap:6px}
+  .gallery-bays{grid-template-columns:1fr;gap:20px}
+  .project-epilogue{grid-template-columns:1fr}.project-epilogue p{grid-column:auto}
+  .cv-heading{flex-direction:column}.cv-register>div{grid-template-columns:1fr;gap:6px}.cv-action{text-align:left}
+  .social-list a{grid-template-columns:1fr 40px;gap:6px;padding:18px 0}.social-list span{grid-column:1/2}.social-list i{grid-column:2;grid-row:1/3}
+  .contact-options{flex-wrap:wrap}.contact-halo{width:82vw}.contact-wings i{width:55vw}
+  footer{flex-direction:column;gap:20px;align-items:flex-start}footer nav{flex-wrap:wrap}
+}
+
+@media (hover:none){.gallery-bay::after{background:rgba(64,64,66,.48)}.gallery-copy p,.gallery-copy span{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.frieze-track{animation:none}.reveal{opacity:1;transform:none;transition:none}}
+
+/* V10.3 hero hierarchy: display text ~5 parts, supporting text ~3 parts visually, without overpowering the museum image. */
+.hero-copy{max-width:980px}
+@media (max-width:760px){.hero-identity p{font-size:17px}.hero-identity p+ p{font-size:14px}.hero-summary{font-size:18px}.inscription-link{font-size:14px}.hero-dedication span{font-size:12px}.hero-dedication strong{font-size:16px}}

@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LVDVS — Charlie Chen</title><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="lvdvs.css"></head><body class="arcade-page">
+<header class="arcade-nav"><a href="/">← GREAT HALL</a><span>LVDVS · SIDE CHAMBER · MMXXVI</span></header>
+<main class="arcade-main">
+  <header class="arcade-title"><p>VI · LVDVS</p><h1>ARCADE</h1><span>Six unnecessary interactive exhibits.</span></header>
+  <nav class="game-tabs" aria-label="Games">
+    <button class="active" data-game="discipline">CHOOSE DISCIPLINE</button><button data-game="quiz">HOW CHARLIE?</button><button data-game="instrument">INSTRUMENT</button><button data-game="pick">CATCH PICK</button><button data-game="boss">404 BOSS</button><button data-game="random">RANDOMIZER</button>
+  </nav>
+
+  <section class="game-panel active" id="discipline">
+    <div class="game-head"><span>I</span><div><p>RPG SELECTOR</p><h2>CHOOSE YOUR DISCIPLINE</h2></div></div>
+    <div class="class-grid" id="class-grid"></div><div class="result-box" id="class-result">SELECT A CLASS.</div>
+  </section>
+
+  <section class="game-panel" id="quiz">
+    <div class="game-head"><span>II</span><div><p>QUESTIONABLE METRIC</p><h2>HOW CHARLIE ARE YOU?</h2></div></div>
+    <div id="quiz-box"></div>
+  </section>
+
+  <section class="game-panel" id="instrument">
+    <div class="game-head"><span>III</span><div><p>GEAR BRAINROT</p><h2>INSTRUMENT GUESSING GAME</h2></div></div>
+    <div class="spec-card"><p id="spec-text"></p><div id="instrument-options" class="option-grid"></div><div class="result-box" id="instrument-result">READ THE SPECS. GUESS THE INSTRUMENT.</div><button class="game-button" id="next-instrument">NEXT OBJECT</button></div>
+  </section>
+
+  <section class="game-panel" id="pick">
+    <div class="game-head"><span>IV</span><div><p>DEXTERITY TEST</p><h2>CATCH THE PICK</h2></div></div>
+    <div class="pick-hud"><span>SCORE <b id="pick-score">0</b></span><span>TIME <b id="pick-time">20</b></span><button class="game-button" id="pick-start">START</button></div>
+    <div class="pick-arena" id="pick-arena"><button id="pick-target" aria-label="Guitar pick">▲</button></div>
+  </section>
+
+  <section class="game-panel" id="boss">
+    <div class="game-head"><span>V</span><div><p>ERROR 404</p><h2>THE DEADLINE</h2></div></div>
+    <div class="boss-card"><div class="boss-name">BOSS · THE DEADLINE</div><div class="hp"><i id="boss-hp"></i></div><p id="boss-status">It is 11:42 PM. The deploy is broken.</p><button class="game-button danger" id="boss-attack">SUBMIT ATTACK</button><button class="game-button" id="boss-reset">RESET BOSS</button></div>
+  </section>
+
+  <section class="game-panel" id="random">
+    <div class="game-head"><span>VI</span><div><p>IDENTITY FAILURE</p><h2>RANDOM INTEREST GENERATOR</h2></div></div>
+    <div class="random-output" id="random-output">BASSIST + PROGRAMMER + LVTHIER + TRICKER</div><button class="game-button" id="randomize">REROLL IDENTITY</button>
+  </section>
+</main><script src="lvdvs.js"></script></body></html>
