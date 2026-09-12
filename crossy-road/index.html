@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171526">
+  <meta name="description" content="Help Professor Peep cross a chaotic campus in this browser arcade game.">
+  <title>Professor Peep's Campus Dash</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell" aria-labelledby="game-title">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">A tiny campus crossing</p>
+        <h1 id="game-title">Professor Peep's Campus Dash</h1>
+      </div>
+      <button id="sound-button" class="icon-button" type="button" aria-pressed="false" aria-label="Turn sound on">Sound off</button>
+    </header>
+
+    <section class="game-card" aria-label="Professor Peep's Campus Dash game">
+      <div class="scoreboard" aria-live="polite">
+        <div><span>Score</span><strong id="score">0</strong></div>
+        <div><span>Best</span><strong id="best-score">0</strong></div>
+      </div>
+
+      <div id="canvas-wrap" class="canvas-wrap">
+        <canvas id="game-canvas" width="960" height="640" aria-label="Game area. Cross lanes while avoiding moving hazards."></canvas>
+
+        <div id="start-panel" class="overlay visible">
+          <div class="panel">
+            <div class="mascot-badge" aria-hidden="true">P</div>
+            <p class="kicker">Office hours start soon!</p>
+            <h2>Cross the campus</h2>
+            <p>Dodge shuttles, scooters, and runaway coffee carts. Move forward to earn points.</p>
+            <button id="start-button" class="primary-button" type="button">Start dashing</button>
+            <p class="key-hint">Arrow keys / WASD / swipe</p>
+          </div>
+        </div>
+
+        <div id="game-over-panel" class="overlay" aria-hidden="true">
+          <div class="panel">
+            <p class="kicker">Schedule conflict!</p>
+            <h2>Run over</h2>
+            <p id="game-over-message">Professor Peep got caught in campus traffic.</p>
+            <p class="final-score">Score <strong id="final-score">0</strong></p>
+            <button id="restart-button" class="primary-button" type="button">Try again</button>
+            <p class="key-hint">Press Enter or Space to restart</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls" aria-label="Touch controls">
+        <button class="move-button up" type="button" data-direction="up" aria-label="Move forward">▲</button>
+        <button class="move-button left" type="button" data-direction="left" aria-label="Move left">◀</button>
+        <button class="move-button down" type="button" data-direction="down" aria-label="Move backward">▼</button>
+        <button class="move-button right" type="button" data-direction="right" aria-label="Move right">▶</button>
+      </div>
+    </section>
+
+    <p class="instructions"><strong>Get to class:</strong> move one square at a time, avoid everything with wheels, and push farther north for a higher score.</p>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
